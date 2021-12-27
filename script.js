@@ -2,9 +2,14 @@ var pincode = document.getElementById('pincode');
 var date = document.getElementById('date');
 var search = document.getElementById('search');
 var cards=document.getElementById('cards');
+var opening = document.getElementById('opening');
+var reload = document.getElementById('reload');
 var centers = [];
 
 function getdata(){
+    if(cards.innerHTML!=""){
+        cards.innerHTML = "";
+    }
     var url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode.value}&date=${date.value}`;
     var xhreq = new XMLHttpRequest();
     xhreq.onload = function(){
@@ -13,6 +18,7 @@ function getdata(){
       console.log(xhreq.status);
       console.log(data);
       if(data.length!=0){
+          opening.style.display="none";
           data.map((element , index , array)=>{
               var centerinfo = [
                   element.name,
@@ -68,6 +74,8 @@ function getdata(){
     </div>
     </div>`;
     cards.innerHTML += code;
+    
+
                  
           });
       }else if(data.length==0){
@@ -84,6 +92,8 @@ function getdata(){
     xhreq.send();
 }
  
-
-
+function refresh(){
+    window.location.reload();
+}
+reload.addEventListener('click' , refresh);
 search.addEventListener('click' , getdata);

@@ -7,6 +7,7 @@
  html{
      height: 100%;
      font-size: 62.5%;
+     position: relative;
  }
 
 body{
@@ -17,6 +18,7 @@ body{
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
+    display: block;
     
 }
 
@@ -61,6 +63,7 @@ body{
     position: relative;
     left: 0;
     top:0px;
+    cursor: pointer;
 }
 #pincode{
     margin-right: 3rem;
@@ -84,6 +87,7 @@ body{
     );
    
     opacity: 0.8;
+
 
     
 }
@@ -112,11 +116,17 @@ body{
     height: 3.2rem;
     font-size: 2rem;
     text-align: center;
-    background-image: linear-gradient(to left, #f69ec4 0%, #32557f 100%);
+    background-image: linear-gradient(to right, #c2e59c, #64b3f4);
+    border: 3px solid black;
 }
 .searchcontainer input:focus{
-    background-color: palegreen;
+    /* background-color: palegreen; */
+    border-color:red;
 }
+.searchcontainer input:active{
+    background-color: tomato;
+}
+
 
 .pincodearea{
     display: flex;
@@ -145,6 +155,7 @@ button:hover{
     opacity: 0.5; */
 }
 .footer{
+    
     grid-area: f;
     background-color: black;
     opacity: 0.8;
@@ -153,6 +164,10 @@ button:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* position: relative;
+    width: 100vw;
+    left: 0px;
+    bottom: 0px; */
     justify-content: calc();
     font-weight: 500;
     /* font-size: 2.3rem; */
@@ -170,6 +185,7 @@ i{
     margin-left: 5px;
 }
 .cards {
+    margin-top: 4rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -178,12 +194,13 @@ i{
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+            
   }
   
   .cards .card {
     background: white;
     padding: 1.6rem;
-    min-height: 35vh;
+    min-height: 45vh;
     min-width: 55vw;
     margin: 1.6rem;
     font-size: 1.5rem;
@@ -236,17 +253,21 @@ i{
             transform: translate(0, 2.9rem);
     font-size: 1.3rem
   }
+  @media screen and (max-width:768px) {
+    html{
+        font-size:55%;
+    }
 
   @media screen and (max-width:400px) {
       html{
           font-size:50%;
       }
       .opening img{
-          height: 50vh;
+          height: 55vh;
       }
 
       .mainnav img{
-          width:10rem
+          width:10rem;
       }
   }
 
